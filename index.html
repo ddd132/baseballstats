@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Player Stats</title>
+</head>
+
+<body>
+  <h1>選手數據編輯平台</h1>
+
+  <h2>查詢</h2>
+  <div class="showthestats">
+    <label for="queryPlayerName">以球員名稱查詢 </label>
+    <input type="text" id="queryPlayerName" required>
+    <button onclick="queryStats()">查詢</button>
+  </div>
+
+  <h2>添加數據</h2>
+  <div class="entersomething">
+    <label for="playerName">輸入名稱 </label>
+    <input type="text" id="playerName" required>
+    <button onclick="inputname()">輸入</button>
+  </div>
+  <div id="statsOptions" style="display:none;">
+    <h3>選手: <span id="currentPlayer"></span></h3>
+    <select id="statchosing">
+      <option value="1">一壘安打 (1B)</option>
+      <option value="2">二壘安打 (2B)</option>
+      <option value="3">三壘安打 (3B)</option>
+      <option value="4">全壘打(HR)</option>
+      <option value="5">三振</option>
+      <option value="6">四壞</option>
+      <option value="7">高飛犧牲打</option>
+      <option value="8">犧牲短打</option>
+      <option value="9">捕手干擾打擊</option>
+      <option value="10">出局</option>
+    </select>
+    <button onclick="addStat()">輸入數據</button>
+    <button onclick="doneInput()">完成</button>
+  </div>
+
+  <div id="displayStats" style="display:none;">
+    <h3>Player Stats for <span id="queriedPlayer"></span>:</h3>
+    <p id="atBats"></p>
+    <p id="onBasePercentage"></p>
+    <p id="sluggingPercentage"></p>
+    <p id="ops"></p>
+  </div>
+
+  <div id="playerStatsTable" style="display:none;">
+    <h3>All Player Stats</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>選手</th>
+          <th>一壘安打</th>
+          <th>二壘安打</th>
+          <th>三壘安打</th>
+          <th>全壘打</th>
+          <th>三振</th>
+          <th>四壞</th>
+          <th>高飛犧牲打</th>
+          <th>犧牲短打</th>
+          <th>捕手干擾打擊</th>
+          <th>出局</th>
+          <th>打數</th>
+          <th>上壘率</th>
+          <th>長打率</th>
+          <th>OPS</th>
+        </tr>
+      </thead>
+      <tbody id="statsTableBody">
+      </tbody>
+    </table>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
